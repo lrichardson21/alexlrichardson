@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/afavicon.png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <!-- Main Content -->
+    <main>
+        <p class="name" style="text-align:center; padding-bottom: 30px;"> Hey, I'm Alex</p>
+        <p style="text-align:center; padding-bottom: 30px;" >I'm teaching myself how to make a website</p>
+        <p style="text-align:center; padding-bottom: 30px;" >(It will be done soon I promise)</p>
+    </main>
+
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+</body>
+
+    <!-- JavaScript to load components -->
+    <script>
+        // Function to load HTML content into an element
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => document.getElementById(id).innerHTML = data)
+                .catch(error => console.error('Error loading component:', error));
+        }
+
+        // Load navbar and footer
+        loadComponent('navbar', 'topnav.html');
+        loadComponent('footer', 'footer.html');
+    </script>
+</html>
