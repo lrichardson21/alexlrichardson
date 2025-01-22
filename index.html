@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alex L. Richardson</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/afavicon.png">
 </head>
 <body>
-  <header>
-    <h1>Welcome to Alex Richardson's Website</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Your bio goes here.</p>
-    </section>
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-      <p>Showcase your projects here.</p>
-    </section>
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Provide contact methods or a form.</p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2024 Alex L. Richardson</p>
-  </footer>
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <!-- Main Content -->
+    <main>
+        <p class="name" style="text-align:center; padding-bottom: 30px;"> Hey, I'm Alex</p>
+        <p style="text-align:center; padding-bottom: 30px;" >I'm teaching myself how to make a website</p>
+        <p style="text-align:center; padding-bottom: 30px;" >(It will be done soon I promise)</p>
+    </main>
+
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
 </body>
+
+    <!-- JavaScript to load components -->
+    <script>
+        // Function to load HTML content into an element
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => document.getElementById(id).innerHTML = data)
+                .catch(error => console.error('Error loading component:', error));
+        }
+
+        // Load navbar and footer
+        loadComponent('navbar', 'topnav.html');
+        loadComponent('footer', 'footer.html');
+    </script>
 </html>

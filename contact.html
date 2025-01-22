@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/afavicon.png">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        /* Left Section: Images */
+        .contact-images {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+            animation: slide-in-left 1s ease-out;
+        }
+
+        .contact-images img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--dark-blue);
+        }
+
+        /* Right Section: Links */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+            flex: 1;
+            animation: slide-in-right 1s ease-out;
+        }
+
+        .contact-links a {
+            color: var(--dark-blue);
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--orange);
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes slide-in-left {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-in-right {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Contact Me</h1>
+        <div class="contact-container">
+            <!-- Left Section: Images -->
+            <div class="contact-images">
+                <img src="images/alex1.jpeg" alt="Picture of Alex 1">
+                <img src="images/alex2.JPG" alt="Picture of Alex 2">
+            </div>
+
+            <!-- Right Section: Links -->
+            <div class="contact-links">
+                <a href="mailto:alexrichardson0130@gmail.com"> Email Me</a>
+                <a href="https://www.linkedin.com/in/alex-richardson-ab41472a2" target="_blank"> LinkedIn</a>
+                <a href="https://github.com/lrichardson21" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <!-- JavaScript to load components -->
+    <script>
+        // Function to load HTML content into an element
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => document.getElementById(id).innerHTML = data)
+                .catch(error => console.error('Error loading component:', error));
+        }
+
+        // Load navbar and footer
+        loadComponent('navbar', 'topnav.html');
+        loadComponent('footer', 'footer.html');
+    </script>
+</body>
+</html>

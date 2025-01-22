@@ -1,0 +1,329 @@
+/* Correct Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap');
+
+/* Define CSS Variables for Colors */
+:root {
+    --dark-blue: #392f5A;
+    --floral-white: #FFF8F0;
+    --peach: #FFCC99;
+    --orange: #6c7f72;
+    --backround: #b4c4b9;
+    --text: #000000;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Montserrat Alternates', sans-serif; /* Correct font name */
+    background-color: var(--backround); /* Light blue background */
+    color: var(--text);
+    min-height: 100vh;
+    margin: 0;
+    top: 0%;
+    padding: 0px 40px 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+     /* Example of using the CSS variable */
+}
+
+main {
+    flex: 1; /* This makes the main content take up the available space */
+    padding: 20px;
+}
+
+
+
+button {
+    color: var(--dark-blue) ;
+    background-color: var(--peach);
+
+}
+
+button:hover{
+    background-color: var(--orange);
+}
+
+.name {
+    color: #392f5A;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--backround);
+    overflow: hidden;
+    padding: 0 20px 40px;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: var(--text);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+  
+  /* Change the color of links on hover */
+.topnav a:hover {
+    background-color: var(--backround);
+    color: var(--orange);
+    text-decoration: underline;
+}
+  
+  /* Add a color to the active/current link */
+.topnav a.active {
+    background-color: var(--backround);
+    color: var(--orange);
+    text-decoration: underline;
+    
+}
+
+/* Footer */
+.footer {
+    background-color: var(--backround);
+    color: var(--dark-blue);
+    font-size: small;
+    align-content: center;
+    padding: 10px 0;
+    width: 100%;
+    justify-content: space-between; /* Even spacing between items */
+    align-items: center; /* Align items vertically in the center */
+    flex-wrap: wrap; 
+}
+
+.font-thin {
+    font-weight: 100;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+a:link{
+    color:var(--dark-blue);
+    text-decoration: none;
+    
+}
+
+a:visited{
+    color:var(--dark-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--orange);
+}
+
+.font-italic {
+    font-style: italic;
+}
+
+.font-bold-italic {
+    font-weight: 700;
+    font-style: italic;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    align-content: flex-start;
+    justify-content: center;
+    /*border: 1px solid red; debugging
+    padding: 10px; /* Add padding for better spacing */
+    gap: 20px;
+}
+
+.flex-container1 {
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center vertically within the container */
+    align-items: center; /* Center horizontally */
+    gap: 10px; /* Add space between items */
+    height: 100%; /* Ensure container takes up full height */
+    text-align: center; /* Center text inside items */
+}
+
+.flex-item {
+    flex: 1;
+    padding: 10px;
+}
+
+.flex-item {
+    flex: 1;
+    padding: 10px;
+    justify-content: space-between;
+}
+.image img{
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 10px var(--dark-blue);
+    align-self: center;
+    border-radius: 6px;
+}
+
+.text-group {
+    flex: 1; /* Ensures the text group takes up space proportional to the image */
+    display: flex;
+    flex-direction: column; /* Stacks the title and description vertically */
+}
+
+.title {
+    font-weight: bold;
+    color: #392f5A;
+    font-size: 35px;
+}
+
+video {
+    border-radius: 8px; /* Adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for better aesthetics */
+    max-width: 100%; /* Ensures responsiveness */
+    height: auto;
+}
+
+
+@media(prefers-reduced-motion) {
+    .hidden {
+        transition: none;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(-50px);
+        transition: all 2s;
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+}
+
+.slide {
+    animation-name: slideInLeft;
+    animation-duration: 1s;
+}
+
+.flex-item-text {
+    flex: 1;
+}
+
+
+.reverse {
+    align-self: end;
+}
+
+.slider-container{
+  width: 100%;
+  height: 100vh;
+  background-image: url('Images/bg-img.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slider-images{
+  display: flex;
+  align-items: center;
+  gap: 21px;
+}
+.slider-images img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.slider-img{
+  width: 110px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.7s ease;
+}
+.slider-images .slider-img:first-child, .slider-images .slider-img:last-child{
+  height: 480px;
+}
+.slider-images .slider-img:nth-child(2), .slider-images .slider-img:nth-child(6){
+  height: 560px;
+}
+.slider-images .slider-img:nth-child(3), .slider-images .slider-img:nth-child(4), .slider-images .slider-img:nth-child(5){
+  height: 665px;
+}
+h1{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  text-align: left;
+  
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  transform: rotate(270deg);
+  transition: 0.7s ease;
+}
+.details{
+  position: absolute;
+  bottom: 43px;
+  left: 43px;
+}
+.details h2{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  text-align: left;
+  line-height: 44px;
+  text-align: left;
+  color: #fff;
+  
+  transition: 0.7s ease;
+  display: none;
+}
+.details p{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  text-align: left;
+  line-height: 33px;
+  text-align: left;
+  color: #fff;
+
+  transition: 0.7s ease;
+  display: none;
+}
+.slider-img.active{
+  width: 766px !important;
+  height: 750px !important;
+}
+.slider-img.active h1{
+   display: none;
+}
+.slider-img.active .details p, .slider-img.active .details h2{
+  display: block;
+}
+
+.fade {
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
