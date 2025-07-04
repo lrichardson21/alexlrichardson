@@ -1,140 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nihon</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="images/afavicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihon</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/afavicon.png" />
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <div id="navbar"></div>
+  <!-- Delayed Navigation Bar -->
+  <div id="navbar" class="appearbox4"></div>
 
-    <div class="flex-container slide">
-        <div class="text-group">
-            <div class="flex-item title">Communication</div>
-            <div class="flex-item text">Here i talk about comunication</div>
-            
-        </div>
+  <!-- Intro Section -->
+  <main class="appearbox">
+    <section class="flex-container">
+      <div class="text-group">
+        <div class="flex-item title appearbox0" style="text-align: center;">it's an important reminder i can do what i set my mind to</div>
+        <div class="flex-item text appearbox1">this is the principle i live by</div>
+        <div class="flex-item text appearbox2">and what pushes me to do things</div>
+        <div class="flex-item text appearbox3">maybe not 'great' things yet, but anything</div>
+      </div>
+    </section>
 
+    <!-- Image Grid -->
+    <section class="grid-wrapper appearbox0">
+      <img src="https://res.cloudinary.com/dj7fgeqkb/image/upload/v1737896004/apt_log3lh.jpg" alt="Apartment View">
+      <img src="https://res.cloudinary.com/dj7fgeqkb/image/upload/v1737895881/walk_pg003k.jpg" alt="Hakone">
+      <img src="https://res.cloudinary.com/dj7fgeqkb/image/upload/v1737896054/hakone_q1selx.jpg" alt="Torii Gate">
+    </section>
 
-        <div class="flex-item image">
-            <img src="images/apt.JPG" alt="Image 1" width="500" height="300">
-        </div>
-    </div>
-
-    <section class="slider-container">
-        <div class="slider-images">
-          <div class="slider-img">
-            <img src="images/osakacastle.JPG" alt="1" />
-            <h1>Osaka</h1>
-            <div class="details">
-              <h2>A view from Osaka Castle</h2>
-              <p>Built in 1583</p>
-            </div>
-          </div>
-          <div class="slider-img">
-            <img src="https://res.cloudinary.com/dj7fgeqkb/image/upload/v1734473951/IMG_4352_r9hdmq.jpg" alt="2" />
-            <h1>日本酒</h1>
-            <div class="details">
-              <h2>日本酒</h2>
-              <p>sake barels display in forest in tokyou</p>
-            </div>
-          </div>
-          <div class="slider-img">
-            <img src="images/apttt.JPG" alt="3" />
-            <h1>Apartmnet</h1>
-            <div class="details">
-              <h2>The chair in my apartment</h2>
-              <p>I made a home in omika</p>
-            </div>
-          </div>
-          <div class="slider-img active">
-            <img src="images/hakone.JPG" alt="4" />
-            <h1>Hakone</h1>
-            <div class="details">
-              <h2>Hakone</h2>
-              <p>The most lush mountains I have ever seen</p>
-            </div>
-          </div>
-          <div class="slider-img">
-            <img src="images/koi.JPG" alt="5" />
-            <h1>鯉のぼり</h1>
-            <div class="details">
-              <h2>Koi no Bori</h2>
-              <p>Childrens day!</p>
-            </div>
-          </div>
-          <div class="slider-img">
-            <img src="images/idk.JPG" alt="6" />
-            <h1>Ginza</h1>
-            <div class="details">
-              <h2>Ginza Temple</h2>
-              <p>Perspective from the top of Name</p>
-            </div>
-          </div>
-          <div class="slider-img">
-            <img src="images/walk.JPG" alt="7" />
-            <h1>Omika</h1>
-            <div class="details">
-              <h2>The edge of the world</h2>
-              <p>The walks along the shore were truly some of the most peacful moments in my life</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="flex-container  ">
-        <div class="flex-item image">
-            <img src="images/osakacastle.JPG" alt="Image 2" width="500" height="300">
-        </div>
-        <div class="text-group">
-            <div class="flex-item title reverse">Culture</div>
-            <div class="flex-item text reverse">Here I talk about culture</div>
-        </div>
-    </div>
-
-    <div class="flex-container ">
-        <div class="text-group">
-            <div class="flex-item title">Drive</div>
-            <div class="flex-item text">Here i talk about drive</div>
-            
-        </div>
-
-        <div class="flex-item image">
-            <img src="images/sake.JPG" loading="lazy" alt="Image 1" width="500" height="300">
-        </div>
-    </div>
-
-
-    <!-- Footer -->
-    <footer id="footer"></footer>
     
-</body>
 
-    <!-- JavaScript to load components -->
-    <script src="jQuery.js"></script>
-    <script>
-      jQuery(document).ready(function ($) {
-        $(".slider-img").on("click", function () {
-          $(".slider-img").removeClass("active");
-          $(this).addClass("active");
+  <!-- Footer -->
+  <footer id="footer"></footer>
+
+  <!-- JS Logic -->
+  <script>
+    function loadComponent(id, file, callback) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(id).innerHTML = data;
+          if (callback) callback();
+        })
+        .catch(error => console.error('Error loading component:', error));
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('loaded');
+
+      loadComponent('footer', 'footer.html');
+
+      // Show navbar after text has appeared
+      setTimeout(() => {
+        loadComponent('navbar', 'topnav.html', () => {
+          document.getElementById('navbar').classList.add('show');
         });
-      });
-    </script>
-    <script>
-        // Function to load HTML content into an element
-        function loadComponent(id, file) {
-            fetch(file)
-                .then(response => response.text())
-                .then(data => document.getElementById(id).innerHTML = data)
-                .catch(error => console.error('Error loading component:', error));
-        }
-
-        // Load navbar and footer
-        loadComponent('navbar', 'topnav.html');
-        loadComponent('footer', 'footer.html');
-    </script>
-    
+      }, 4000);
+    });
+  </script>
+</body>
 </html>

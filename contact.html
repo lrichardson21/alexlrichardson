@@ -1,124 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="images/afavicon.png">
-    <style>
-        /* Contact Page Specific Styles */
-        .contact-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
-
-        /* Left Section: Images */
-        .contact-images {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            flex: 1;
-            animation: slide-in-left 1s ease-out;
-        }
-
-        .contact-images img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--dark-blue);
-        }
-
-        /* Right Section: Links */
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-            flex: 1;
-            animation: slide-in-right 1s ease-out;
-        }
-
-        .contact-links a {
-            color: var(--dark-blue);
-            font-size: 1.2em;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-links a:hover {
-            color: var(--orange);
-            text-decoration: underline;
-        }
-
-        /* Animations */
-        @keyframes slide-in-left {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slide-in-right {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/afavicon.png" />
+  <!-- Font Awesome for icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <div id="navbar"></div>
+  <!-- Navigation Bar -->
+  <div id="navbar"></div>
+  <main>
+<!-- Contact Intro -->
+<!-- Contact Intro -->
+<section class="contact-intro">
+    <h1 class="title">Let’s Connect!</h1>
+    <p class="text" style="line-height: 2.0; font-size: large;">
+        I just graduated college and I'm ready to take the next step toward achieving my lifelong dream: working for NASA! 
+    </p>
+    <p class="text" style="line-height: 2.0; font-size: large;">I'm currently seeking full-time opportunities in aerospace software development, where I can grow and contribute to mission-driven technology. Feel free to reach out or download my resume below!
+    </p>
+    </section>
+  
+  <!-- Photo Row -->
+  <section class="contact-photo-row">
+    <img src="https://res.cloudinary.com/dj7fgeqkb/image/upload/v1751481300/IMG_1226_g830xq.jpg" alt="Photo 2" class="contact-img" />
+    <img src="https://res.cloudinary.com/dj7fgeqkb/image/upload/v1751492325/IMG_2106_1_lauqa1.jpg" alt="Photo 1" class="contact-img" />
+    <img src="https://res.cloudinary.com/dj7fgeqkb/image/upload/v1751650943/CC807DEC-B01B-4552-AE8A-975DBD09FBCD_1_105_c_cro12q.png" alt="Photo 3" class="contact-img" />
+  </section>
+  
+  <!-- Contact Options -->
+  <section class="contact-links">
+    <a href="https://www.linkedin.com/in/lauren-richardson-ab41472a2/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/lrichardson21" target="_blank">GitHub</a>
+    <a href="mailto:larichardson0130@gmail.com">Email Me</a>
+   
+        <!-- View (opens in new tab) -->
+        <a href="RichardsonResume2025.pdf" target="_blank" class="resume-view">
+          View Resume
+        </a>
+      
+        <!-- Download (triggers file download) -->
+        <a href="RichardsonResume2025.pdf" download class="resume-download" title="Download Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" class="download-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 16l4-5h-3V4h-2v7H8l4 5zM5 18h14v2H5z"/>
+          </svg>
+        </a>
+      
+  </section>
+  
+  
+  </main>
 
-    <!-- Main Content -->
-    <main>
-        <h1>Contact Me</h1>
-        <div class="contact-container">
-            <!-- Left Section: Images -->
-            <div class="contact-images">
-                <img src="images/alex1.jpeg" alt="Picture of Alex 1">
-                <img src="images/alex2.JPG" alt="Picture of Alex 2">
-            </div>
+  <!-- Footer -->
+  <footer id="footer"></footer>
 
-            <!-- Right Section: Links -->
-            <div class="contact-links">
-                <a href="mailto:alexrichardson0130@gmail.com"> Email Me</a>
-                <a href="https://www.linkedin.com/in/alex-richardson-ab41472a2" target="_blank"> LinkedIn</a>
-                <a href="https://github.com/lrichardson21" target="_blank">GitHub</a>
-            </div>
-        </div>
-    </main>
+  <!-- Load Navbar and Footer -->
+  <script>
+    function loadComponent(id, file, callback) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(id).innerHTML = data;
+          if (callback) callback();
+        })
+        .catch(error => console.error('Error loading component:', error));
+    }
 
-    <!-- Footer -->
-    <footer id="footer"></footer>
-
-    <!-- JavaScript to load components -->
-    <script>
-        // Function to load HTML content into an element
-        function loadComponent(id, file) {
-            fetch(file)
-                .then(response => response.text())
-                .then(data => document.getElementById(id).innerHTML = data)
-                .catch(error => console.error('Error loading component:', error));
-        }
-
-        // Load navbar and footer
-        loadComponent('navbar', 'topnav.html');
-        loadComponent('footer', 'footer.html');
-    </script>
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('loaded');
+      loadComponent('footer', 'footer.html');
+      setTimeout(() => {
+        loadComponent('navbar', 'topnav.html', () => {
+          document.getElementById('navbar').classList.add('show');
+        });
+      }, 0);
+    });
+  </script>
 </body>
 </html>
